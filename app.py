@@ -167,7 +167,6 @@ Respond with exactly "IN_SCOPE" or "OUT_OF_SCOPE". Do not add any other words or
 '''),
         ("human", "Question: {question}. Classification:")
 
-Classification:")
     ])
 
     REFUSAL_MESSAGE = "I am sorry, but I can only answer questions related to Acrux Dynamics' internal HR policies, employee benefits, and HR processes."
