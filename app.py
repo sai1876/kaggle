@@ -170,8 +170,7 @@ OUT_OF_SCOPE questions include:
 
 Respond with exactly "IN_SCOPE" or "OUT_OF_SCOPE". Do not add any other words or punctuation.
 '''),
-        ("human", "Question: {question}
-Classification:")
+        ("human", "Question: {question}. Classification:")
     ])
 
     REFUSAL_MESSAGE = "I am sorry, but I can only answer questions related to Acrux Dynamics' internal HR policies, employee benefits, and HR processes."
