@@ -127,7 +127,12 @@ def init_rag_pipeline():
 retriever, llm = init_rag_pipeline()
 
 if retriever is None or llm is None:
-    st.error(f"Corpus path not found: {CORPUS_PATH}. Please check your environment configuration or set the correct CORPUS_PATH environment variable.")
+    st.error(f"Corpus path not found: [{CORPUS_PATH}] (Resolved to: [{os.path.abspath(CORPUS_PATH) if CORPUS_PATH else ''}]).")
+    try:
+        st.write(f"Current Working Directory: {os.getcwd()}")
+        st.write("Files in Current Directory:", os.listdir("."))
+    except Exception as e:
+        st.write(f"Error listing directory: {str(e)}")
 else:
     # Set up prompts
     RAG_PROMPT = ChatPromptTemplate.from_messages([
@@ -165,8 +170,8 @@ OUT_OF_SCOPE questions include:
 
 Respond with exactly "IN_SCOPE" or "OUT_OF_SCOPE". Do not add any other words or punctuation.
 '''),
-        ("human", "Question: {question}. Classification:")
-
+        ("human", "Question: {question}
+Classification:")
     ])
 
     REFUSAL_MESSAGE = "I am sorry, but I can only answer questions related to Acrux Dynamics' internal HR policies, employee benefits, and HR processes."
