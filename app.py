@@ -165,7 +165,8 @@ OUT_OF_SCOPE questions include:
 
 Respond with exactly "IN_SCOPE" or "OUT_OF_SCOPE". Do not add any other words or punctuation.
 '''),
-        ("human", "Question: {question}
+        ("human", "Question: {question}. Classification:")
+
 Classification:")
     ])
 
